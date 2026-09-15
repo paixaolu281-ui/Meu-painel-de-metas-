@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+  <title>Meu Painel de Metas</title>
+  <meta name="description" content="Acompanhe suas metas financeiras e pessoais com progresso visual, histórico e conquistas." />
+
+  <meta name="theme-color" content="#0B0E13" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Metas" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">🎯</div>
+        <h1>Meu Painel</h1>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <nav class="bottom-nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-screen="painel" aria-label="Painel">
+          <span class="nav-icon">🏠</span><span>Painel</span>
+        </button>
+        <button class="nav-item" data-screen="metas" aria-label="Metas">
+          <span class="nav-icon">🎯</span><span>Metas</span>
+        </button>
+        <button class="nav-item" data-screen="analises" aria-label="Análises">
+          <span class="nav-icon">📊</span><span>Análises</span>
+        </button>
+        <button class="nav-item" data-screen="historico" aria-label="Histórico">
+          <span class="nav-icon">📜</span><span>Histórico</span>
+        </button>
+        <button class="nav-item" data-screen="conquistas" aria-label="Conquistas">
+          <span class="nav-icon">🏆</span><span>Conquistas</span>
+        </button>
+        <button class="nav-item" data-screen="configuracoes" aria-label="Configurações">
+          <span class="nav-icon">⚙️</span><span>Ajustes</span>
+        </button>
+      </nav>
+
+      <main style="flex:1; min-width:0;">
+        <section id="screen-painel" class="screen active" aria-labelledby="painel-heading"></section>
+        <section id="screen-metas" class="screen"></section>
+        <section id="screen-analises" class="screen"></section>
+        <section id="screen-historico" class="screen"></section>
+        <section id="screen-conquistas" class="screen"></section>
+        <section id="screen-configuracoes" class="screen"></section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal genérico (formulários, detalhes, aportes) -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <!-- Diálogo de confirmação genérico -->
+  <div class="modal-overlay" id="confirm-overlay">
+    <div class="modal-sheet" style="max-width:380px;">
+      <h3 id="confirm-title">Confirmar ação</h3>
+      <p id="confirm-message" class="text-secondary mt-8" style="font-size:14px;"></p>
+      <div class="confirm-actions">
+        <button class="btn btn-secondary" id="confirm-cancel">Cancelar</button>
+        <button class="btn btn-primary" id="confirm-ok">Confirmar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notificações toast -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- Onboarding de primeira utilização -->
+  <div class="onboarding-screen hidden" id="onboarding-overlay">
+    <div class="mark">🎯</div>
+    <h1>Transforme seus objetivos em conquistas.</h1>
+    <p>Crie sua primeira meta e acompanhe seu progresso com clareza — passo a passo, real a real.</p>
+    <button class="btn btn-primary btn-block" id="onboarding-start" style="max-width:280px;">Começar com exemplos</button>
+    <button class="btn btn-ghost" id="onboarding-empty">Começar do zero</button>
+  </div>
+
+  <script src="./js/db.js"></script>
+  <script src="./js/charts.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
